@@ -109,6 +109,5 @@ public class Juego extends Canvas implements Runnable{
         Juego juego = new Juego();
         juego.iniciar();
     }
+    //prueba 
 }
-
-//comentario
