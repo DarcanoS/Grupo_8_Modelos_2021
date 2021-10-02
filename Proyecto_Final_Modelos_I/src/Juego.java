@@ -105,9 +105,25 @@ public class Juego extends Canvas implements Runnable{
         fps++;
     }
     
-    public static void main(String[] args) {
-        Juego juego = new Juego();
-        juego.iniciar();
+    public static void main(String[] args) throws CloneNotSupportedException {
+		
+		Carta charizard = new Charizard();
+		Carta blastoide = new Blastoide();
+		//impresion de las cartas co los valores establecidos originales
+		System.out.println(charizard);
+		System.out.println(blastoide);
+		
+		System.out.println("________Turno________");
+		
+		charizard.clone();
+		charizard.setDañorecibido(50);
+		System.out.println(charizard);
+		
+		blastoide.clone();
+		blastoide.setDañorecibido(50);
+		System.out.println(blastoide);
+                
+       /* Juego juego = new Juego();
+        juego.iniciar();*/
     }
-    //prueba 
 }
