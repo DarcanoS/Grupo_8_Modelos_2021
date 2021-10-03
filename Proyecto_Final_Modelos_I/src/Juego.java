@@ -110,3 +110,5 @@ public class Juego extends Canvas implements Runnable{
         juego.iniciar();
     }
 }
+
+//.
