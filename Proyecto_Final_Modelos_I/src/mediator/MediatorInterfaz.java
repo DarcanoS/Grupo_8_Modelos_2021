@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import observer.ObservadoConcreto;
 import observer.Observador;
+import proxy.*;
 
 /**
  *
@@ -62,11 +63,13 @@ public class MediatorInterfaz implements Mediator {
 
     @Override
     public void crear(JFrame _frame, ActionListener _listener,
-            ObservadoConcreto _observado, Observador _observador) {
+            ObservadoConcreto _observado, Observador _observador, Proxy _proxy) {
         JPanel pPrincipal1, pPrincipal2, pSub1Principal1, pSub2Principal1;
 
         //Se agrega un observador
         _observado.agregarObservador(_observador);
+        
+        _proxy.doAction();
 
         Container contenedor = _frame.getContentPane();
         contenedor.setLayout(null);

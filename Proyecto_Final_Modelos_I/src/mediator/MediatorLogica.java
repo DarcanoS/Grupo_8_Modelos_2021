@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import juego.Variables;
 import observer.ObservadoConcreto;
 import observer.Observador;
+import proxy.*;
 
 /**
  *
@@ -35,6 +36,7 @@ public class MediatorLogica implements Mediator {
 
     private String hasPerdido = Variables.LOSE;
     private String hasGanado = Variables.WIN;
+    
 
     @Override
     public void registerComponent(Component component) {
@@ -78,7 +80,7 @@ public class MediatorLogica implements Mediator {
 
     @Override
     public void crear(JFrame _frame, ActionListener _listener,
-            ObservadoConcreto _observado, Observador _observador) {
+            ObservadoConcreto _observado, Observador _observador, Proxy _proxy) {
         if (_ae.getSource().equals(menus.getSalir())) {
             _observado.notificarObservadores("Se ha decidio salir de la aplicacion.");
             System.exit(0);
@@ -129,6 +131,8 @@ public class MediatorLogica implements Mediator {
         }
 
         if (_ae.getSource() == buttons.getbOtraCarta()) {
+            
+            _proxy.doAction();
             buttons.getbRepartir().setEnabled(false);
             int temp;
             temp = cardJugador.calcularTamano();

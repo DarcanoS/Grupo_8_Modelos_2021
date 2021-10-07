@@ -9,6 +9,7 @@ import observer.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import proxy.Proxy;
 
 /**
  *
@@ -19,7 +20,7 @@ public interface Mediator {
     public void registerComponent(Component component);
 
     public void crear(JFrame _frame, ActionListener _listener,
-            ObservadoConcreto _observado, Observador _observador);
+            ObservadoConcreto _observado, Observador _observador, Proxy _proxy);
     
     public void setAe(ActionEvent _ae);
 }

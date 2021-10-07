@@ -29,11 +29,11 @@ public class Facade {
     private CartasJugadorCupier cardJugador = new CartasJugadorCupier();
     private CartasJugadorCupier cardCupier = new CartasJugadorCupier();
     private Baraja b = new Baraja();
-    
 
     private Mediator mediadorInterfaz = new MediatorInterfaz();
     private Mediator mediadorLogica = new MediatorLogica();
 
+    //Implemenacion del patron Singleton
     public static Facade obtenerInstancia() {
         if (instancia == null) {
             instancia = new Facade();
@@ -53,7 +53,7 @@ public class Facade {
 
         return this.mediadorInterfaz;
     }
-    
+
     public Mediator getMediatorLogica(ActionEvent _ae) {
         this.mediadorLogica.registerComponent(paneles);
         this.mediadorLogica.registerComponent(menus);
@@ -68,43 +68,10 @@ public class Facade {
         this.mediadorLogica.registerComponent(cardJugador);
         this.mediadorLogica.registerComponent(cardCupier);
         this.mediadorLogica.registerComponent(b);
-        
+
         mediadorLogica.setAe(_ae);
 
         return this.mediadorLogica;
     }
 
-////    public FondoGeneral getFondoGeneral() {
-////        return this.fondoGeneral;
-////    }
-////
-////    public FondoMadera_1 getFondoMadera_1() {
-////        return this.fondoMadera_1;
-////    }
-////
-////    public FondoMadera_2 getFondoMadera_2() {
-////        return this.fondoMadera_2;
-////    }
-////
-////    public Paneles getPaneles() {
-////        return this.paneles;
-////    }
-////
-////    public Menus gerMenus(ActionListener _this) {
-////        this.menus.listener(_this);
-////        return this.menus;
-////    }
-////
-////    public Labels getLabels() {
-////        return this.labels;
-////    }
-////
-////    public Texts getTexts() {
-////        return this.texts;
-////    }
-////
-////    public Buttons getButtons(ActionListener _this) {
-////        this.buttons.listener(_this);
-////        return this.buttons;
-////    }
 }
