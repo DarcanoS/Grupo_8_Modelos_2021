@@ -92,6 +92,9 @@ public class MediatorLogica implements Mediator {
                     + "Stivel Pinilla Puerta - 20191020024", "Quienes Somos", 1);
         }
         if (_ae.getSource() == buttons.getbRepartir()) {
+            
+            _proxy.reset();
+            
             buttons.getFicha1().setEnabled(false);
             buttons.getFicha5().setEnabled(false);
             buttons.getFicha10().setEnabled(false);
@@ -132,7 +135,7 @@ public class MediatorLogica implements Mediator {
 
         if (_ae.getSource() == buttons.getbOtraCarta()) {
             
-            _proxy.doAction();
+            System.out.println(_proxy.doAction());
             buttons.getbRepartir().setEnabled(false);
             int temp;
             temp = cardJugador.calcularTamano();

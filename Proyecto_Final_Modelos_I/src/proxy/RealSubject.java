@@ -9,13 +9,11 @@ package proxy;
  *
  * @author Stivel
  */
-public class RealSubject implements Subject{
-    
-    int contador=0;
+public class RealSubject implements Subject {
 
     @Override
     public String doAction() {
         return "El jugador a realizado ";
     }
-    
+
 }

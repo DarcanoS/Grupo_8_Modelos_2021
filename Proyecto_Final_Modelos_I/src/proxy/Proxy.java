@@ -9,19 +9,22 @@ package proxy;
  *
  * @author Stivel
  */
-public class Proxy implements Subject{
-    
+public class Proxy implements Subject {
+
     private int jugadas;
+
+    public Proxy() {
+        this.jugadas = 1;
+    }
     
-    public Proxy(){
-        this.jugadas = 0;
-        System.out.println("Proxy:");
+    public void reset(){
+        this.jugadas = 1;
     }
 
     @Override
     public String doAction() {
         RealSubject r = new RealSubject();
         jugadas++;
-        return r.doAction()+jugadas+" movimientos.";
+        return "Proxy:\n" + r.doAction() + jugadas + " movimientos.";
     }
 }
