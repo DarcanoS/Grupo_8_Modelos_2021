@@ -3,24 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package mediator;
 
-import juego.Variables;
 import java.awt.*;
 import javax.swing.*;
+import juego.Variables;
 
 /**
  *
  * @author Stivel
  */
-public class FondoGeneral extends JPanel{
+public class FondoMadera_2 extends JPanel implements Component{
+
+    private Mediator mediator;
 
     private static final long serialVersionUID = 1L;
     Image fondo;
     String path = Variables.PATH;
+    
+    @Override
+    public void setMediator(Mediator _mediator) {
+        this.mediator = _mediator;
+    }
+    
+    @Override
+    public String getName() {
+        return "FondoMadera_2";
+    }
 
-    public FondoGeneral() {
-        fondo = new ImageIcon(path + "mesa.gif").getImage();
+    public FondoMadera_2() {
+        fondo = new ImageIcon(path + "mesamadera.jpg").getImage();
     }
 
     public void paint(Graphics g) {

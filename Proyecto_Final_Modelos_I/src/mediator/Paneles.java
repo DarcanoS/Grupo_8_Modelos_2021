@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package mediator;
 
 import java.awt.Container;
 import javax.swing.JPanel;
@@ -12,7 +12,9 @@ import javax.swing.JPanel;
  *
  * @author Stivel
  */
-public class Paneles {
+public class Paneles implements Component{
+    
+    private Mediator mediator;
 
     JPanel pPrincipal1;
     JPanel pPrincipal2;
@@ -35,6 +37,16 @@ public class Paneles {
         this.pSub2Principal1 = new JPanel();
         this.pSub2Principal1.setLayout(null);
         this.pSub2Principal1.setBounds(0, 200, 280, 250);
+    }
+    
+    @Override
+    public void setMediator(Mediator _mediator) {
+        this.mediator = _mediator;
+    }
+
+    @Override
+    public String getName() {
+        return "Paneles";
     }
 
     //Metodo para agregar los lebels y los texts al panel configPSub1
@@ -200,5 +212,7 @@ public class Paneles {
     public JPanel getpSub2Principal1() {
         return pSub2Principal1;
     }
+
+    
 
 }

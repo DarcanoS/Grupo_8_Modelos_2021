@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package mediator;
 import juego.Variables;
 
 import java.awt.Color;
@@ -14,13 +14,16 @@ import javax.swing.JLabel;
  *
  * @author Stivel
  */
-public class Labels {
+public class Labels implements Component{
+    
+    private Mediator mediator;
 
     JLabel efectivo, apuesta, jugador, cupier, mensajes, cartaTapadaJugador, cartaTapadaCupier;
     JLabel carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11;
     JLabel cartaCup2, cartaCup3, cartaCup4, cartaCup5, cartaCup6, cartaCup7, cartaCup8, cartaCup9, cartaCup10, cartaCup11;
     ImageIcon cTapada;
     String PATH = Variables.PATH;
+    
 
     public Labels() {
         efectivo = new JLabel("Efectivo");
@@ -57,6 +60,16 @@ public class Labels {
         cTapada = new ImageIcon(PATH + "tapada.png");
         cartaTapadaJugador = new JLabel(cTapada);
         cartaTapadaCupier = new JLabel(cTapada);
+    }
+    
+    @Override
+    public void setMediator(Mediator _mediator) {
+        this.mediator = _mediator;
+    }
+
+    @Override
+    public String getName() {
+        return "Labels";
     }
 
     public JLabel getEfectivo() {
@@ -170,6 +183,8 @@ public class Labels {
     public ImageIcon getcTapada() {
         return cTapada;
     }
+
+    
     
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package mediator;
 
 import juego.Variables;
 
@@ -15,10 +15,23 @@ import javax.swing.JButton;
  *
  * @author Stivel
  */
-public class Buttons {
+public class Buttons implements Component{
+    
+    private Mediator mediator;
+    
     JButton bRepartir, bOtraCarta, bSeguro, bOtroJuego, ficha1, ficha5, ficha10, ficha25, ficha50, ficha100;
     ImageIcon icoFicha1, icoFicha5, icoFicha10, icoFicha25, icoFicha50, icoFicha100, cTapada;
     final String PATH = Variables.PATH;
+    
+    @Override
+    public void setMediator(Mediator _mediator) {
+        this.mediator = _mediator;
+    }
+
+    @Override
+    public String getName() {
+        return "Buttons";
+    }
     
     public void listener(ActionListener _this){
         bOtraCarta = new JButton("Otra Carta");
@@ -52,6 +65,7 @@ public class Buttons {
 		ficha100  = new JButton(icoFicha100);
 		ficha100.addActionListener(_this);
     }
+    
 
     public JButton getbRepartir() {
         return bRepartir;
@@ -124,6 +138,8 @@ public class Buttons {
     public String getPATH() {
         return PATH;
     }
+
+    
     
     
 }

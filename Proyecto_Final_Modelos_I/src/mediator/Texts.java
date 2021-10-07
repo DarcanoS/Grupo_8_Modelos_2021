@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package mediator;
 
 import javax.swing.JTextField;
 
@@ -11,7 +11,9 @@ import javax.swing.JTextField;
  *
  * @author Stivel
  */
-public class Texts {
+public class Texts implements Component{
+    
+    private Mediator mediator;
 
     JTextField fieldEfectivo, fieldApuesta, fieldPuntajeJugador, fieldPuntajeCupier;
 
@@ -24,6 +26,16 @@ public class Texts {
         fieldPuntajeJugador.setEditable(false);
         fieldPuntajeCupier = new JTextField("0");
         fieldPuntajeCupier.setEditable(false);
+    }
+    
+    @Override
+    public void setMediator(Mediator _mediator) {
+        this.mediator = _mediator;
+    }
+
+    @Override
+    public String getName() {
+        return "Texts";
     }
 
     public JTextField getFieldEfectivo() {
@@ -41,5 +53,7 @@ public class Texts {
     public JTextField getFieldPuntajeCupier() {
         return fieldPuntajeCupier;
     }
+
+    
 
 }

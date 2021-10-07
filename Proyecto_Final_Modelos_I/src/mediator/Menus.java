@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package mediator;
 
 import java.awt.event.*;
 import javax.swing.*;
@@ -12,11 +12,23 @@ import javax.swing.*;
  *
  * @author Stivel
  */
-public class Menus {
+public class Menus implements Component{
+    
+    private Mediator mediator;
 
     JMenu inicio, autores;
     JMenuItem salir, quienesSomos;
     JMenuBar barraDeOpciones;
+    
+    @Override
+    public void setMediator(Mediator _mediator) {
+        this.mediator = _mediator;
+    }
+
+    @Override
+    public String getName() {
+        return "Menus";
+    }
 
     public void listener(ActionListener _this) {
         inicio = new JMenu("Inicio ");
@@ -54,5 +66,7 @@ public class Menus {
     public JMenuBar getBarraDeOpciones() {
         return barraDeOpciones;
     }
+
+    
 
 }

@@ -1,0 +1,86 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mediator;
+
+import juego.Carta;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Stivel
+ */
+public class CartasJugadorCupier implements Component {
+
+    Mediator mediator;
+    String name;
+
+    Vector<Carta> cartasJugadorCupier = new Vector<Carta>(1, 1);
+
+    public CartasJugadorCupier() {
+
+    }
+
+    @Override
+    public void setMediator(Mediator _mediator) {
+        this.mediator = _mediator;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCarta(Carta c) {
+        cartasJugadorCupier.addElement(c);
+    }
+
+    public Carta getCarta(int i) {
+        Carta c;
+        c = cartasJugadorCupier.get(i);
+        return c;
+    }
+
+    public int CalcularTotal() {
+
+        int total = 0;
+        for (int i = 0; i < cartasJugadorCupier.size(); i++) {
+            total += (cartasJugadorCupier.get(i)).getValorCarta();
+        }
+        return total;
+    }
+
+    public int calcularTamano() {
+        int tamano;
+        tamano = cartasJugadorCupier.size();
+        return tamano;
+
+    }
+
+    public void reiniciar() {
+        cartasJugadorCupier.removeAllElements();
+    }
+
+    public void cambiarValorAs(int n) {
+        Object[] valores = {" [1] Uno ", " [11] Once"};
+
+        if (cartasJugadorCupier.get(n).getValorCarta() == 1) {
+            if (JOptionPane.showOptionDialog(null, "Que valor Desea Asignar A La Carta", "BlackJack 21",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    cartasJugadorCupier.get(n).getImagenCarta(),
+                    valores, valores[0]) == 0) {
+                cartasJugadorCupier.get(n).setValorCarta(1);
+            } else {
+                cartasJugadorCupier.get(n).setValorCarta(11);
+            }
+        }
+    }
+
+}

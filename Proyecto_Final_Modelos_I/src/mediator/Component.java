@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package observer;
+package mediator;
 
 /**
  *
  * @author Stivel
  */
-public interface IObservador {
-
-    public void observarEstado(String _mensaje);
+public interface Component {
+    public void setMediator (Mediator _mediator);
+    public String getName();
 }

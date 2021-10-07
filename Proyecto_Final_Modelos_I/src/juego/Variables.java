@@ -22,5 +22,7 @@ public interface Variables {
     //Ruta de la carpeta de imagenes
     public final String PATH = "/home/Stivel/Documentos/NetBeansProjects/Grupo_"
             + "8_Modelos_2021/Proyecto_Final_Modelos_I/src/images/";
+    public final String LOSE = "Has Perdido!!!";
+    public final String WIN = "Usted Es El Ganador!!!";
 
 }
