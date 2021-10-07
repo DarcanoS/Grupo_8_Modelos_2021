@@ -1,7 +1,10 @@
+package juego;
+
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /*
@@ -17,9 +20,9 @@ import javax.swing.JFrame;
 public class Juego extends Canvas implements Runnable{
     
     private static JFrame ventana;
-    private static final int ANCHO = 800;
-    private static final int ALTO = 600;
-    private static final String TITULO = "Juego";
+    private static final int ANCHO = Variables.ANCHO;
+    private static final int ALTO = Variables.ALTO;
+    private static final String TITULO = Variables.TITULO;
     
     private static Thread thread;
     //Variable que ayudara con el funcionamiento del while del hilo Thread_1
@@ -63,8 +66,8 @@ public class Juego extends Canvas implements Runnable{
     //Metodo que corre el Thread_1
     public void run() {
         //nano segundops por cada segundo
-        final int NS_POR_SEGUNDO = 1000000000;
-        final byte APS = 60; //actializaciones por segundo
+        final int NS_POR_SEGUNDO = Variables.NS_POR_SEGUNDO;
+        final byte APS = Variables.APS; //actializaciones por segundo
         //nano segundos por actualizacion
         final double NS_X_A = NS_POR_SEGUNDO / APS;
         long refActu = System.nanoTime();
@@ -105,8 +108,12 @@ public class Juego extends Canvas implements Runnable{
         fps++;
     }
     
+    //--------------------------------------
+    static private String path = Variables.PATH;
+    
     public static void main(String[] args) {
-        Juego juego = new Juego();
-        juego.iniciar();
+        Interfaz interfaz = new Interfaz();
+        interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        interfaz.setIconImage(new ImageIcon(path + "icono.gif").getImage());
     }
 }
